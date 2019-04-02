@@ -4,3 +4,4 @@ select s.stud_no,count(i.book_no) from student s,membership m,book b,iss_rec i w
 select book_name from book where book_no in (select book_no from iss_rec where mem_no in (select mem_no from membership where stud_no in(select stud_no from student where stud_no=5)));
 create view list as (select i.iss_no,i.iss_date,s.stud_no,b.book_name from student s,membership m,book b,iss_rec i where s.stud_no=m.stud_no amd b.book_no=i.book_no and i.mem_no=m.mem_no);
 	select * from list;
+select book_name from book where book_no in(select book_no from iss_rec where mem_no in(select mem_no from membership where stud_no in(select stud_no from student where stud_no=5)));																	
