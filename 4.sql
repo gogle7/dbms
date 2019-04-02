@@ -1,5 +1,5 @@
-select s.s_name,s.age from sailors s,reserves r,boats b where s.sid=r.sid and r.bid=b.bid and b.color="red" order s.age;
-select s.s_name from sailors s where s.sid in (select r.sid from reserves r where r.bid=103);
-	select s.s_name from sailors s where exists (select * from reserves r where r.bid=103 and r.sid=s.sid);
-select s.s_name,s.age from sailors s where s.age<=all(select age from sailors);
-select s.rating,avg(s.age) as average_age from sailors s group by s.rating having count(*)>1;
+select aname from aircraft a,employee e,certified c where c.eid=e.eid and c.aid=a.aid and e.salary>80000;
+select c.eid,max(A.crange) from employee e,certified c,aircraft a where e.eid=c.eid and c.aid=a.aid group by c.eid;
+select distinct e.ename from employee e,certified c where e.eid=c.eid and e.salary<(select min(price) from flight f where f.ffrom="Bangalore" and f.fto="Nepal");
+select max(salary) from employee where salary not in (select max(salary) from employee);
+	select max(salary) from employee where salary <> (select max(salary) from employee);
